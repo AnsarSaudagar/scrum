@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+/* #3c83f6 */
+@import "primeicons/primeicons.css";
+
+:root {
+    --primary-color: #3c83f6;
+    --default-color: #4b5563;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
