@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import { authRoutes } from './core/auth/auth.routes';
 import { AuthenticationComponent } from './layout/components/authentication/authentication.component';
+import { HomeComponent } from './layout/components/home/home.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'auth',
-        pathMatch: 'full'
+        component: HomeComponent
     },
     {
         path: 'auth',
