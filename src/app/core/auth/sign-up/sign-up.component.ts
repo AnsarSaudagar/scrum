@@ -31,6 +31,7 @@ import { MessageService } from 'primeng/api';
 })
 export class SignUpComponent {
   signupForm: FormGroup;
+  loading = false;
 
   constructor(
     private authService: AuthService,
@@ -68,6 +69,7 @@ export class SignUpComponent {
 
   onSubmit() {
     if (this.signupForm.status === 'VALID') {
+      this.loading = true;
       
       const formData = this.signupForm.value;
       console.log(formData);
@@ -78,6 +80,7 @@ export class SignUpComponent {
       }
       this.authService.register(userData).subscribe({
         next: (res) => {
+          this.loading = false;
           this.router.navigate(['auth', 'login']);
           this.messageService.add({
             severity: 'success',
@@ -86,7 +89,7 @@ export class SignUpComponent {
 
         },
         error:(err) => {
-          
+          this.loading = false;
           this.messageService.add({
             severity: 'error',
             summary: err.error.message,

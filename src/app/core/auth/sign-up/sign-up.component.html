@@ -31,6 +31,8 @@
                     <input id="confirmPassword" formControlName="confirmPassword" type="password" pInputText placeholder="Confirm your password" />
                 </div>
                 <p-button type="ngSubmit" label="Create Account"
+                    [loading]="loading"
+                    [disabled]="loading || signupForm.invalid"
                     [style]="{background: 'var(--primary-color)', border: 'var(--primary-color)', 'border-radius': '12px', width: '100%', 'margin-top': '12px'}"  />
             </div>
         </form>
