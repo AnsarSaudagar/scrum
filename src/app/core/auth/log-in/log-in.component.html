@@ -10,15 +10,54 @@
     <!-- Divider -->
     <div class="flex items-center w-full mt-6">
         <div class="flex-1 h-px bg-gray-300"></div>
-        <span class="px-3 text-sm text-gray-500">or</span>
+        <span class="px-3 text-sm text-gray-500">{{"Or continue with" | uppercase }}</span>
         <div class="flex-1 h-px bg-gray-300"></div>
     </div>
 
+    <!-- Login Form -->
+    <div class="w-full">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-field">
+                <label for="email" class="field-label">Email</label>
+                <input 
+                    id="email" 
+                    formControlName="email" 
+                    placeholder="johndoe@gmail.com" 
+                    type="email" 
+                    pInputText 
+                    [class.error-input]="email?.invalid && email?.touched"
+                />
+                <div class="error-message" *ngIf="email?.invalid && email?.touched">
+                    <span *ngIf="email?.errors?.['required']">Email is required</span>
+                    <span *ngIf="email?.errors?.['email']">Please enter a valid email address</span>
+                </div>
+            </div>
+            
+            <div class="form-field">
+                <label for="password" class="field-label">Password</label>
+                <input 
+                    id="password" 
+                    formControlName="password" 
+                    type="password" 
+                    pInputText 
+                    placeholder="Enter your password"
+                    [class.error-input]="password?.invalid && password?.touched"
+                />
+                <div class="error-message" *ngIf="password?.invalid && password?.touched">
+                    <span *ngIf="password?.errors?.['required']">Password is required</span>
+                </div>
+            </div>
 
+            <p-button type="ngSubmit" label="Sign In"
+                [loading]="loading"
+                [disabled]="loading || loginForm.invalid"
+                [style]="{background: 'var(--primary-color)', border: 'var(--primary-color)', 'border-radius': '12px', width: '100%', 'margin-top': '12px'}"  />
+        </form>
+    </div>
 
     <!-- Sign Up Link -->
     <p class="text-sm text-gray-500 mt-4">
         Don't have an account? 
-        <a routerLink="/auth/signup" class="text-blue-600 hover:text-blue-700 font-medium">Sign up</a>
+        <a routerLink="/auth/register" class="text-[var(--primary-color)] hover:text-blue-700 font-medium">Sign up</a>
     </p>
 </div>

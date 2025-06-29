@@ -1,3 +1,93 @@
 .shad {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
+/* Form Field Container */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+/* Label Styling */
+.field-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Input Base Styling */
+input {
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    /* border: 2px solid #e5e7eb; */
+    transition: all 0.2s ease-in-out;
+    background-color: #ffffff;
+    color: #374151;
+}
+
+input::placeholder {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Input Focus State */
+input:focus {
+    border: 2px solid var(--primary-color) !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Input Error State */
+input.error-input {
+    border: 2px solid #ef4444 !important;
+    /* background-color: #fef2f2; */
+}
+
+input.error-input:focus {
+    border: 2px solid #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Error Message Styling */
+.error-message {
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+    color: #ef4444;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.error-message span {
+    display: block;
+}
+
+.error-message span:before {
+    content: "⚠";
+    margin-right: 0.25rem;
+    font-size: 0.875rem;
+}
+
+/* Input Hover State */
+input:hover:not(:focus):not(.error-input) {
+    border-color: #d1d5db;
+}
+
+/* Valid Input State (when touched and valid) */
+/* input:not(.error-input).ng-valid.ng-touched {
+    border-color: #10b981;
+    background-color: #f0fdf4;
+} */
+
+/* Disabled Input State */
+input:disabled {
+    background-color: #f9fafb;
+    color: #6b7280;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
