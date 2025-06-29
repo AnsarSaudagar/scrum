@@ -1,17 +1,29 @@
-<div class="flex flex-col items-center justify-center shad m-auto min-h-10 rounded-lg mt-10 bg-white p-2 ">
+<div class="flex flex-col items-center justify-center shad m-auto min-h-10 rounded-lg mt-10 bg-white p-6">
     <h2 class="text-2xl font-semibold">Register</h2>
-    <p class="text-sm text-gray-500  text-center mt-2">Enter your email and password to access your account</p>
-    <div class="flex items-center justify-around w-full mt-4">
-        <div  class="google-btn border hover:bg-[#e2e8f0] transition-all duration-300 cursor-pointer border-[#e2e8f0] rounded-xl w-[45%] p-2 flex items-center justify-center gap-2 ">
-            <i style="font-size: 14px;" class="pi pi-github" ></i>
-            
-            <p class="text-sm font-medium flex items-center justify-center">Github</p>
-        </div>
-        <div  class="google-btn border hover:bg-[#e2e8f0] transition-all duration-300 cursor-pointer border-[#e2e8f0] rounded-xl w-[45%] p-2 flex items-center justify-center gap-2 ">
-            <i style="font-size: 14px;" class="pi pi-envelope" ></i>
-            
-            <p class="text-sm font-medium flex items-center justify-center">Google</p>
-        </div>
-        
+    <p class="text-sm text-gray-500 text-center mt-2">Enter your email and password to access your account</p>
+    
+    <!-- OAuth Buttons -->
+     <div class="w-full">
+        <app-providers></app-providers>
+     </div>
+
+    <!-- Divider -->
+    <div class="flex items-center w-full mt-6">
+        <div class="flex-1 h-px bg-gray-300"></div>
+        <span class="px-3 text-sm text-gray-500">or</span>
+        <div class="flex-1 h-px bg-gray-300"></div>
     </div>
+    <div>
+        <form [formGroup]="signupForm">
+        
+        </form>
+    </div>
+
+
+
+    <!-- Sign Up Link -->
+    <p class="text-sm text-gray-500 mt-4">
+        Don't have an account? 
+        <a routerLink="/auth/signup" class="text-blue-600 hover:text-blue-700 font-medium">Sign up</a>
+    </p>
 </div>
