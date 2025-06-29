@@ -8,11 +8,11 @@
 
     <div class="flex items-center w-full mt-6">
         <div class="flex-1 h-px bg-gray-300"></div>
-        <span class="px-3 text-sm text-gray-500">or</span>
+        <span class="px-3 text-sm text-gray-500">{{"Or continue with" | uppercase }}</span>
         <div class="flex-1 h-px bg-gray-300"></div>
     </div>
     <div class="w-full">
-        <form [formGroup]="signupForm">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <div class="flex flex-col">
                 <label for="username" class="text-sm font-semibold my-2">Full Name</label>
                 <input id="username" formControlName="username" placeholder="John Doe" type="text" pInputText />
@@ -22,16 +22,16 @@
                 <input id="email" formControlName="email" placeholder="johndoe@gmail.com" type="email" pInputText />
             </div>
             <div formGroupName="passwordCheck">
-                <!-- <div class="flex flex-col mt-2">
+                <div class="flex flex-col mt-2">
                     <label for="password" class="text-sm font-semibold my-2">Password</label>
-                    <input id="password" formControlName="password" type="password" pInputText />
+                    <input id="password" formControlName="password" type="password" pInputText placeholder="Create a strong password"/>
                 </div>
                 <div class="flex flex-col mt-2">
                     <label for="confirmPassword" class="text-sm font-semibold my-2">Confirm Password</label>
-                    <input id="confirmPassword" formControlName="confirmPassword" type="password" pInputText />
-                </div> -->
-                <p-button label="Create Account"
-                    [style]="{background: 'var(--primary-color)', border: 'var(--primary-color)', 'border-radius': '12px', width: '100%', 'margin-top': '12px'}" />
+                    <input id="confirmPassword" formControlName="confirmPassword" type="password" pInputText placeholder="Confirm your password" />
+                </div>
+                <p-button type="ngSubmit" label="Create Account"
+                    [style]="{background: 'var(--primary-color)', border: 'var(--primary-color)', 'border-radius': '12px', width: '100%', 'margin-top': '12px'}"  />
             </div>
         </form>
     </div>

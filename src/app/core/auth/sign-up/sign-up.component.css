@@ -9,3 +9,4 @@ input{
 input:focus{
     border: 2px solid var(--primary-color) !important;
 }
+
