@@ -54,6 +54,27 @@ export class SignUpComponent {
     });
   }
 
+  // Getter methods for form controls
+  get username() {
+    return this.signupForm.get('username');
+  }
+
+  get email() {
+    return this.signupForm.get('email');
+  }
+
+  get passwordCheck() {
+    return this.signupForm.get('passwordCheck');
+  }
+
+  get password() {
+    return this.signupForm.get('passwordCheck.password');
+  }
+
+  get confirmPassword() {
+    return this.signupForm.get('passwordCheck.confirmPassword');
+  }
+
   passwordMatchValidator(controls: AbstractControl) {
     const password = controls.get('password');
     const confirmPassword = controls.get('confirmPassword');

@@ -13,23 +13,72 @@
     </div>
     <div class="w-full">
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-            <div class="flex flex-col">
-                <label for="username" class="text-sm font-semibold my-2">Full Name</label>
-                <input id="username" formControlName="username" placeholder="John Doe" type="text" pInputText />
+            <div class="form-field">
+                <label for="username" class="field-label">Full Name</label>
+                <input 
+                    id="username" 
+                    formControlName="username" 
+                    placeholder="John Doe" 
+                    type="text" 
+                    pInputText 
+                    [class.error-input]="username?.invalid && username?.touched"
+                />
+                <div class="error-message" *ngIf="username?.invalid && username?.touched">
+                    <span *ngIf="username?.errors?.['required']">Full name is required</span>
+                    <span *ngIf="username?.errors?.['minlength']">Full name must be at least 3 characters</span>
+                </div>
             </div>
-            <div class="flex flex-col mt-2">
-                <label for="email" class="text-sm font-semibold my-2">Email</label>
-                <input id="email" formControlName="email" placeholder="johndoe@gmail.com" type="email" pInputText />
+            
+            <div class="form-field">
+                <label for="email" class="field-label">Email</label>
+                <input 
+                    id="email" 
+                    formControlName="email" 
+                    placeholder="johndoe@gmail.com" 
+                    type="email" 
+                    pInputText 
+                    [class.error-input]="email?.invalid && email?.touched"
+                />
+                <div class="error-message" *ngIf="email?.invalid && email?.touched">
+                    <span *ngIf="email?.errors?.['required']">Email is required</span>
+                    <span *ngIf="email?.errors?.['email']">Please enter a valid email address</span>
+                </div>
             </div>
+            
             <div formGroupName="passwordCheck">
-                <div class="flex flex-col mt-2">
-                    <label for="password" class="text-sm font-semibold my-2">Password</label>
-                    <input id="password" formControlName="password" type="password" pInputText placeholder="Create a strong password"/>
+                <div class="form-field">
+                    <label for="password" class="field-label">Password</label>
+                    <input 
+                        id="password" 
+                        formControlName="password" 
+                        type="password" 
+                        pInputText 
+                        placeholder="Create a strong password"
+                        [class.error-input]="password?.invalid && password?.touched"
+                    />
+                    <div class="error-message" *ngIf="password?.invalid && password?.touched">
+                        <span *ngIf="password?.errors?.['required']">Password is required</span>
+                    </div>
                 </div>
-                <div class="flex flex-col mt-2">
-                    <label for="confirmPassword" class="text-sm font-semibold my-2">Confirm Password</label>
-                    <input id="confirmPassword" formControlName="confirmPassword" type="password" pInputText placeholder="Confirm your password" />
+                
+                <div class="form-field">
+                    <label for="confirmPassword" class="field-label">Confirm Password</label>
+                    <input 
+                        id="confirmPassword" 
+                        formControlName="confirmPassword" 
+                        type="password" 
+                        pInputText 
+                        placeholder="Confirm your password"
+                        [class.error-input]="(confirmPassword?.invalid && confirmPassword?.touched) || (passwordCheck?.errors?.['passwordMismatch'] && confirmPassword?.touched)"
+                    />
+                    <div class="error-message" *ngIf="confirmPassword?.invalid && confirmPassword?.touched">
+                        <span *ngIf="confirmPassword?.errors?.['required']">Confirm password is required</span>
+                    </div>
+                    <div class="error-message" *ngIf="passwordCheck?.errors?.['passwordMismatch'] && confirmPassword?.touched">
+                        <span>Passwords do not match</span>
+                    </div>
                 </div>
+                
                 <p-button type="ngSubmit" label="Create Account"
                     [loading]="loading"
                     [disabled]="loading || signupForm.invalid"
