@@ -4,10 +4,12 @@ import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModu
 import { RouterModule } from '@angular/router';
 import { ProvidersComponent } from '../providers/providers.component';
 import { AuthService } from '../../services/auth.service';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-sign-in',
-  imports: [CommonModule, FormsModule, RouterModule, ProvidersComponent, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, ProvidersComponent, ReactiveFormsModule, InputTextModule, ButtonModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
@@ -39,5 +41,9 @@ export class SignUpComponent {
       }
     }
     return null;
+  }
+
+  onSubmit(){
+    console.log(this.signupForm);
   }
 }
