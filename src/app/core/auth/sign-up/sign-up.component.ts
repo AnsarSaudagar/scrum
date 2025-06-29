@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ProvidersComponent } from '../providers/providers.component';
 import { AuthService } from '../../services/auth.service';
 import { InputTextModule } from 'primeng/inputtext';
@@ -35,7 +35,8 @@ export class SignUpComponent {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {
     this.signupForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
@@ -66,12 +67,33 @@ export class SignUpComponent {
   }
 
   onSubmit() {
-    // this.messageService.add({
-    //   severity: 'success',
-    //   summary: 'Hello',
-    //   detail: 'Order submitted',
-    // });
     if (this.signupForm.status === 'VALID') {
+      
+      const formData = this.signupForm.value;
+      console.log(formData);
+      const userData = {
+        username: formData.username,
+        email: formData.email,
+        password: formData.passwordCheck.password
+      }
+      this.authService.register(userData).subscribe({
+        next: (res) => {
+          this.router.navigate(['auth', 'login']);
+          this.messageService.add({
+            severity: 'success',
+            summary: "User successfully created",
+          });
+
+        },
+        error:(err) => {
+          
+          this.messageService.add({
+            severity: 'error',
+            summary: err.error.message,
+          });
+          
+        }
+      })
     }
   }
 }
