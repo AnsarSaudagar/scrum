@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -65,6 +65,8 @@ export class LogInComponent {
         },
         error: (err) => {
           this.loading = false;
+          console.log(err);
+          
           this.messageService.add({
             severity: 'error',
             summary: err.error.message || 'Login failed',
