@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
