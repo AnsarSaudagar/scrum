@@ -4,10 +4,11 @@ import { DividerModule } from 'primeng/divider';
 import { OrganizationsService } from '../../../core/services/organizations.service';
 import { Organization } from '../../../core/models/organization.model';
 import { DatePipe } from '@angular/common';
+import { FirstLetterOfWordsPipe } from '../../../shared/pipes/first-letter-of-words.pipe';
 
 @Component({
   selector: 'app-org-cards',
-  imports: [ProgressBarModule, DividerModule, DatePipe],
+  imports: [ProgressBarModule, DividerModule, DatePipe, FirstLetterOfWordsPipe],
   templateUrl: './org-cards.component.html',
   styleUrl: './org-cards.component.css',
 })
