@@ -1,0 +1,28 @@
+.my-box {
+  background-color: var(--background-color);
+  border-color: var(--gray-default-color) !important    ;
+  border-radius: 12px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+::ng-deep .button-dis {
+  background-color: transparent !important;
+  border-color: var(--gray-default-color) !important;
+  color: white;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+::ng-deep .button-dis:hover {
+  background-color: var(--gray-default-color) !important;
+}
+
+::ng-deep .button-req {
+  background-color: var(--primary-color) !important;
+  color: black !important;
+}
+
+::ng-deep .button-req:hover {
+  background-color: var(--primary-color) !important;
+}

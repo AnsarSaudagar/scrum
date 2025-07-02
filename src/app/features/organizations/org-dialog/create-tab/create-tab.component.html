@@ -1,0 +1,51 @@
+<form class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+            <label class="block text-white text-sm font-medium mb-3">
+                Organization Name *
+            </label>
+            <input type="text" placeholder="Acme Corp"
+                class="w-full px-4 py-2  border border-[#1d283a] rounded-xl text-white placeholder-[#7F8DA3] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+        </div>
+        <div>
+            <label class="block text-white text-sm font-medium mb-3">Plan</label>
+            <div class="relative">
+                <p-dropdown name="selectedCity" styleClass="my-box" [options]="cities" [(ngModel)]="selectedCity"
+                    optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label class="block text-white text-sm font-medium mb-3">Description</label>
+        <textarea rows="3" placeholder="Tell us about your organization..."
+            class="w-full px-4 py-3  border border-[#1d283a] rounded-xl text-white placeholder-[#7F8DA3] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"></textarea>
+    </div>
+    <p class="text-white text-lg font-medium ">Organization Settings</p>
+    <div class="border border-[#1d283a] w-full h-[70px] rounded-xl flex items-center px-4 gap-4">
+        <i class="pi pi-globe text-[#7F8DA3]" style="font-size: 1.2rem;"></i>
+        <div>
+            <p class="text-white text-base font-medium">Allow Public Join</p>
+            <p class="text-[#7F8DA3] text-sm">Anyone can discover and join your organization
+            </p>
+        </div>
+        <div class="flex-1"></div>
+        <p-button styleClass="button-dis">Disable</p-button>
+        <p-button styleClass="button-dis button-req">Enable</p-button>
+    </div>
+    <div class="border border-[#1d283a] w-full h-[70px] rounded-xl flex items-center px-4 gap-4">
+        <i class="pi pi-lock text-[#7F8DA3]" style="font-size: 1.2rem;"></i>
+        <div>
+            <p class="text-white text-base font-medium">Require Approval</p>
+            <p class="text-[#7F8DA3] text-sm">New members need approval from admins</p>
+        </div>
+        <div class="flex-1"></div>
+        <p-button styleClass="button-dis">Not Required</p-button>
+        <p-button styleClass="button-dis button-req">Required</p-button>
+    </div>
+    <div class="flex justify-between items-center">
+        <p-button styleClass="button-dis">Back</p-button>
+        <p-button styleClass="button-dis button-req">Create Organization</p-button>
+    </div>
+
+</form>

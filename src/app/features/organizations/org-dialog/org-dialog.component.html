@@ -2,7 +2,7 @@
   [modal]="true" 
   [visible]="visible" 
   (visibleChange)="onVisibleChange($event)"
-  [style]="{ width: '50rem', 'background-color': 'var(--background-color)', 'border-color': 'var(--gray-default-color)' }" 
+  [style]="{ width: '55rem', 'background-color': 'var(--background-color)', 'border-color': 'var(--gray-default-color)' }" 
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
   draggable="false"
 > 
@@ -46,9 +46,7 @@
           </div>
         }
         @if (activeTab === 'create') {
-          <div class="text-white">
-            <p class="m-0">Content for Create tab.</p>
-          </div>
+          <app-create-tab></app-create-tab>
         }
         @if (activeTab === 'join') {
           <div class="text-white">

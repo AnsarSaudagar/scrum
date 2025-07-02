@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { TabsModule } from 'primeng/tabs';
+import { CreateTabComponent } from './create-tab/create-tab.component';
 
 @Component({
   selector: 'app-org-dialog',
-  imports: [TabsModule, DialogModule],
+  imports: [TabsModule, DialogModule, CreateTabComponent],
   templateUrl: './org-dialog.component.html',
   styleUrl: './org-dialog.component.css',
 })
