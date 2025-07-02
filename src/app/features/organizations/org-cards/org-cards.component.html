@@ -1,16 +1,18 @@
-<div class="py-10">
-    <div class="w-full lg:w-[400px] h-[330px] border border-[var(--gray-default-color)] rounded-[11px] p-6">
+<div class="py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    @for (organization of organizations; track organization.id) {
+    <div class="w-full lg:w-[390px] h-[330px] border border-[var(--gray-default-color)] rounded-[11px] p-6">
         <div class="flex items-center gap-4">
             <div class="w-12 h-12 bg-[#0F1629] rounded-full flex items-center justify-center">
-                <p class="text-white text-base">Z</p>
+                <p class="text-white text-base">OC</p>
             </div>
             <div class="flex flex-col gap-1 flex-1">
                 <div class="flex items-center gap-2">
-                    <h2 class="text-white text-base font-bold">Zynith</h2>
+                    <h2 class="text-white text-base font-bold">{{organization.name}}</h2>
                     <i class="pi pi-crown text-[#eab308]" style="font-size: 0.7rem"></i>
                     <div class="flex-1"></div>
                     @if (false) {
-                        <i class="pi pi-check-circle text-[var(--primary-color)] justify-self-end" style="font-size: 1.2rem"></i>
+                    <i class="pi pi-check-circle text-[var(--primary-color)] justify-self-end"
+                        style="font-size: 1.2rem"></i>
                     }
                 </div>
                 <div class="flex items-center gap-2">
@@ -32,8 +34,8 @@
                 </div>
             </div>
         </div>
-        <p class="text-sm multiline-ellipsis text-[#7F8DA3] mt-4">this is my organization please take a look you idiot,
-            yes you stupid kid, you dont know how to code properly
+        <p class="text-sm multiline-ellipsis text-[#7F8DA3] mt-4">
+            {{organization.description}}
         </p>
         <div class="flex items-center justify-between gap-2 mt-4">
             <p class="text-sm text-[#7F8DA3]">Team Size</p>
@@ -56,6 +58,7 @@
             </div>
         </div>
         <div class="w-full border-t border-[#10172A] mt-4"></div>
-        <p class="text-xs text-[#7F8DA3] mt-4">Joined Jun 2025</p>
+        <p class="text-xs text-[#7F8DA3] mt-4">Joined {{organization.created_at | date:'MMM yyyy'}}</p>
     </div>
+    }
 </div>
