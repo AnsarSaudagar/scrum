@@ -1,9 +1,11 @@
 <div class="flex justify-between items-center">
     <h2 class="text-white text-2xl font-bold">Your Organizations</h2>
-    <p-button [style]="{background: 'var(--primary-color)', border: 'var(--primary-color)', 'border-radius': '10px', width: 'fit-content', 'margin-top': '12px', 'color': 'black', 
+    <p-button  [style]="{background: 'var(--primary-color)', border: 'var(--primary-color)', 'border-radius': '10px', width: 'fit-content', 'margin-top': '12px', 'color': 'black', 
         'font-size': '14px', 'font-weight': '400', 'padding': '10px 20px'
-    }"  >
+    }" (click)="showOrgDialog()">
         <i class="pi pi-plus mr-2"  style="font-size: 0.7rem"></i> 
         <p class="text-black">Create New</p>
     </p-button>
 </div>
+
+<app-org-dialog [(visible)]="visible"></app-org-dialog>
