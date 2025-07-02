@@ -1,14 +1,17 @@
 <div class="py-10">
-    <div class="w-full lg:w-[400px] h-[300px] border border-[var(--gray-default-color)] rounded-[11px] p-6">
+    <div class="w-full lg:w-[400px] h-[330px] border border-[var(--gray-default-color)] rounded-[11px] p-6">
         <div class="flex items-center gap-4">
             <div class="w-12 h-12 bg-[#0F1629] rounded-full flex items-center justify-center">
                 <p class="text-white text-base">Z</p>
             </div>
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col gap-1 flex-1">
                 <div class="flex items-center gap-2">
                     <h2 class="text-white text-base font-bold">Zynith</h2>
                     <i class="pi pi-crown text-[#eab308]" style="font-size: 0.7rem"></i>
-                    <!-- pi-check-circle -->
+                    <div class="flex-1"></div>
+                    @if (false) {
+                        <i class="pi pi-check-circle text-[var(--primary-color)] justify-self-end" style="font-size: 1.2rem"></i>
+                    }
                 </div>
                 <div class="flex items-center gap-2">
                     <!-- <span
@@ -38,5 +41,21 @@
         </div>
         <p-progressbar color="var(--primary-color)" showValue="false" [value]="10"
             [style]="{'background-color': '#10172A', 'border-radius': '10px', 'height': '10px', 'margin-top': '10px'}" />
+        <div class="flex items-center justify-around mt-2">
+            <div class="flex flex-col w-fit items-center gap-2 mt-4">
+                <i class="pi pi-users text-[#7F8DA3]" style="font-size: 1rem"></i>
+                <p class="text-xs text-[#7F8DA3]">1 Total</p>
+            </div>
+            <div class="flex flex-col w-fit items-center gap-2 mt-4">
+                <i class="pi pi-crown text-[#7F8DA3]" style="font-size: 0.8rem"></i>
+                <p class="text-xs text-[#7F8DA3]">0 Admins</p>
+            </div>
+            <div class="flex flex-col w-fit items-center gap-2 mt-4">
+                <i class="pi pi-globe text-[#7F8DA3]" style="font-size: 0.9rem"></i>
+                <p class="text-xs text-[#7F8DA3]">Public</p>
+            </div>
+        </div>
+        <div class="w-full border-t border-[#10172A] mt-4"></div>
+        <p class="text-xs text-[#7F8DA3] mt-4">Joined Jun 2025</p>
     </div>
 </div>
