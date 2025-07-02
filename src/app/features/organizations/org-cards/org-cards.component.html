@@ -1,64 +1,75 @@
 <div class="py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     @for (organization of organizations; track organization.id) {
-      <div class="flex flex-col justify-between w-full h-[330px] border border-[var(--gray-default-color)] rounded-[11px] p-6">
+    <div
+        class="flex flex-col justify-between w-full h-[330px] border border-[var(--gray-default-color)] rounded-[11px] p-6">
         <div>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-[#0F1629] rounded-full flex items-center justify-center">
-              <p class="text-white text-base">{{organization.name | firstLetterOfWords}}</p>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-[#0F1629] rounded-full flex items-center justify-center">
+                    <p class="text-white text-base">{{organization.name | firstLetterOfWords}}</p>
+                </div>
+                <div class="flex flex-col flex-1">
+                    <div class="flex items-center gap-2">
+                        <h2 class="text-white text-base font-bold">{{organization.name}}</h2>
+                        @if (organization.is_owner) {
+                        <i class="pi pi-crown text-[#eab308] text-xs"></i>
+                        }
+                    </div>
+                    <div class="flex items-center gap-2 mt-1">
+                        <!-- <span
+                            class="inline-block px-2 py-0.5 bg-[#0F1629] text-white text-xs font-semibold rounded-full">
+                            member
+                        </span> -->
+                        @if (organization.is_owner) {
+                        <span
+                            class="inline-block px-2 py-0.5 bg-[var(--primary-color)] text-black text-xs font-semibold rounded-full">owner</span>
+                        } @else{
+                        <span
+                            class="inline-block px-2 py-0.5 bg-[#0F1629] text-white text-xs font-semibold rounded-full">
+                            member
+                        </span>
+                        }
+                        <span
+                            class="inline-block px-2 py-0.5 text-white text-xs font-semibold rounded-full border border-[var(--gray-default-color)]">free</span>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-col flex-1">
-              <div class="flex items-center gap-2">
-                <h2 class="text-white text-base font-bold">{{organization.name}}</h2>
-                <i class="pi pi-crown text-[#eab308] text-xs"></i>
-              </div>
-              <div class="flex items-center gap-2 mt-1">
-                <span class="inline-block px-2 py-0.5 bg-[var(--primary-color)] text-black text-xs font-semibold rounded-full">owner</span>
-                <span class="inline-block px-2 py-0.5 text-white text-xs font-semibold rounded-full border border-[var(--gray-default-color)]">free</span>
-              </div>
+
+            <p class="text-sm text-[#7F8DA3] mt-4 h-10 line-clamp-3">
+                {{organization.description}}
+            </p>
+
+            <div class="flex items-center justify-between mt-4">
+                <p class="text-sm text-[#7F8DA3]">Team Size</p>
+                <p class="text-sm text-white">1/10 members</p>
             </div>
-          </div>
-  
-          <p class="text-sm text-[#7F8DA3] mt-4 h-10 line-clamp-3">
-            {{organization.description}}
-          </p>
-  
-          <div class="flex items-center justify-between mt-4">
-            <p class="text-sm text-[#7F8DA3]">Team Size</p>
-            <p class="text-sm text-white">1/10 members</p>
-          </div>
-  
-          <p-progressbar 
-            color="var(--primary-color)" 
-            showValue="false"
-            [value]="10"
-            [style]="{
+
+            <p-progressbar color="var(--primary-color)" showValue="false" [value]="10" [style]="{
               backgroundColor: '#10172A',
               borderRadius: '10px',
               height: '10px',
               marginTop: '10px'
             }">
-          </p-progressbar>
-  
-          <div class="flex items-center justify-around mt-4">
-            <div class="flex flex-col items-center gap-1">
-              <i class="pi pi-users text-[#7F8DA3] text-sm"></i>
-              <p class="text-xs text-[#7F8DA3]">1 Total</p>
+            </p-progressbar>
+
+            <div class="flex items-center justify-around mt-4">
+                <div class="flex flex-col items-center gap-1">
+                    <i class="pi pi-users text-[#7F8DA3] text-sm"></i>
+                    <p class="text-xs text-[#7F8DA3]">1 Total</p>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <i class="pi pi-crown text-[#7F8DA3] text-xs"></i>
+                    <p class="text-xs text-[#7F8DA3]">0 Admins</p>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <i class="pi pi-globe text-[#7F8DA3] text-xs"></i>
+                    <p class="text-xs text-[#7F8DA3]">Public</p>
+                </div>
             </div>
-            <div class="flex flex-col items-center gap-1">
-              <i class="pi pi-crown text-[#7F8DA3] text-xs"></i>
-              <p class="text-xs text-[#7F8DA3]">0 Admins</p>
-            </div>
-            <div class="flex flex-col items-center gap-1">
-              <i class="pi pi-globe text-[#7F8DA3] text-xs"></i>
-              <p class="text-xs text-[#7F8DA3]">Public</p>
-            </div>
-          </div>
         </div>
-  
+
         <div class="border-t border-[#10172A] pt-4 mt-4">
-          <p class="text-xs text-[#7F8DA3]">Joined {{organization.created_at | date:'MMM yyyy'}}</p>
+            <p class="text-xs text-[#7F8DA3]">Joined {{organization.created_at | date:'MMM yyyy'}}</p>
         </div>
-      </div>
+    </div>
     }
-  </div>
-  
+</div>

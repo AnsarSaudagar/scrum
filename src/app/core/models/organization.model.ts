@@ -6,4 +6,5 @@ export interface Organization {
     allow_public_join: boolean;
     require_approval: boolean;
     created_at: Date;
+    is_owner?: boolean;
 }
