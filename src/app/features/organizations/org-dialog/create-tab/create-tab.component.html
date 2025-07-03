@@ -1,16 +1,22 @@
-<form class="space-y-6">
+<form [formGroup]="orgForm" class="space-y-6" (ngSubmit)="onCreateOrg()">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
             <label class="block text-white text-sm font-medium mb-3">
-                Organization Name *
+                Organization Name <span class="text-red-500">*</span>
             </label>
-            <input type="text" placeholder="Acme Corp"
-                class="w-full px-4 py-2  border border-[#1d283a] rounded-xl text-white placeholder-[#7F8DA3] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+            <input formControlName="name" type="text" placeholder="Acme Corp"
+                class="w-full px-4 py-2 border border-[#1d283a] rounded-xl text-white placeholder-[#7F8DA3] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                [class.error-input]="name?.invalid && name?.touched" />
+            <div class="error-message" *ngIf="name?.invalid && name?.touched">
+                <span *ngIf="name?.errors?.['required']">Organization name is required</span>
+                <span *ngIf="name?.errors?.['minlength']">Organization name must be at least 3 characters</span>
+                <span *ngIf="name?.errors?.['maxlength']">Organization name cannot exceed 50 characters</span>
+            </div>
         </div>
         <div>
             <label class="block text-white text-sm font-medium mb-3">Plan</label>
             <div class="relative">
-                <p-dropdown name="selectedCity" styleClass="my-box" [options]="cities" [(ngModel)]="selectedCity"
+                <p-dropdown name="selectedCity" styleClass="my-box" [options]="cities"
                     optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem">
                 </p-dropdown>
             </div>
@@ -18,8 +24,15 @@
     </div>
     <div>
         <label class="block text-white text-sm font-medium mb-3">Description</label>
-        <textarea rows="3" placeholder="Tell us about your organization..."
-            class="w-full px-4 py-3  border border-[#1d283a] rounded-xl text-white placeholder-[#7F8DA3] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"></textarea>
+        <textarea formControlName="description" rows="3" placeholder="Tell us about your organization..."
+            class="w-full px-4 py-3 border border-[#1d283a] rounded-xl text-white placeholder-[#7F8DA3] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+            [class.error-input]="description?.invalid && description?.touched"></textarea>
+        <div class="error-message" *ngIf="description?.invalid && description?.touched">
+            <span *ngIf="description?.errors?.['maxlength']">Description cannot exceed 500 characters</span>
+        </div>
+        <div class="text-right mt-1">
+            <span class="text-xs text-[#7F8DA3]">{{ description?.value?.length || 0 }}/500</span>
+        </div>
     </div>
     <p class="text-white text-lg font-medium ">Organization Settings</p>
     <div class="border border-[#1d283a] w-full h-[70px] rounded-xl flex items-center px-4 gap-4">
@@ -44,8 +57,14 @@
         <p-button styleClass="button-dis button-req">Required</p-button>
     </div>
     <div class="flex justify-between items-center">
-        <p-button styleClass="button-dis">Back</p-button>
-        <p-button styleClass="button-dis button-req">Create Organization</p-button>
+        <p-button type="button" styleClass="button-dis" label="Back"></p-button>
+        <p-button 
+            type="submit" 
+            styleClass="button-dis button-req" 
+            label="Create Organization"
+            [loading]="loading"
+            [disabled]="loading || orgForm.invalid">
+        </p-button>
     </div>
 
 </form>
