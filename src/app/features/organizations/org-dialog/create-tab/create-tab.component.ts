@@ -105,6 +105,7 @@ export class CreateTabComponent {
 
       this.organizationService.createOrganization(formData).subscribe({
         next: (response: any) => {
+          this.organizationService.getOrganizations().subscribe();
           this.orgForm.reset();
           this.onOrgCreated.emit(response);
           this.loading = false;

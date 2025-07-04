@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Organization } from '../models/organization.model';
 import { AuthService } from './auth.service';
@@ -10,6 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class OrganizationsService {
   apiUrl: string = environment.apiUrl + '/organizations';
+  orgsSubject = new BehaviorSubject<Organization[]>([]);
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   getOrganizations(): Observable<Organization[]> {
@@ -22,6 +23,7 @@ export class OrganizationsService {
               organization.is_owner = organization.owner_id === user.userId;
             });
           });
+          this.orgsSubject.next(organizations);
           return organizations;
         }),
         catchError((error: any) => {

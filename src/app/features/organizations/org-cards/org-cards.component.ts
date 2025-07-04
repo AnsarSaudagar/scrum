@@ -18,7 +18,8 @@ export class OrgCardsComponent {
   constructor(private organizationsService: OrganizationsService) {}
 
   ngOnInit(): void {
-    this.organizationsService.getOrganizations().subscribe({
+    this.organizationsService.getOrganizations().subscribe();
+    this.organizationsService.orgsSubject.subscribe({
       next: (data: Organization[]) => {
         this.organizations = data;
       },
