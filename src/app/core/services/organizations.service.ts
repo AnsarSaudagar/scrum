@@ -30,4 +30,16 @@ export class OrganizationsService {
         })
       );
   }
+
+  createOrganization(organization: Organization): Observable<Organization> {
+    return this.http.post<Organization>(`${this.apiUrl}`, organization, { withCredentials: true }).pipe(
+      map((organization: Organization) => {
+        return organization;
+      }),
+      catchError((error: any) => {
+        console.error('Error creating organization:', error);
+        return throwError(() => error);
+      })
+    );
+  }
 }

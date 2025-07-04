@@ -19,6 +19,10 @@ export class OrgDialogComponent {
     this.visibleChange.emit(this.visible);
   }
 
+  onOrgCreated(response: any) {
+    this.onDialogClose();
+  }
+
   onVisibleChange(isVisible: boolean) {
     this.visible = isVisible;
     this.visibleChange.emit(isVisible);

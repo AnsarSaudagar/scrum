@@ -43,8 +43,11 @@
             </p>
         </div>
         <div class="flex-1"></div>
-        <p-button styleClass="button-dis">Disable</p-button>
-        <p-button styleClass="button-dis button-req">Enable</p-button>
+        @if(!enablePublicJoin) {
+            <p-button styleClass="button-dis" (onClick)="enablePublicJoin = !enablePublicJoin">Disable</p-button>
+        } @else {
+            <p-button styleClass="button-dis button-req" (onClick)="enablePublicJoin = !enablePublicJoin">Enable</p-button>
+        }
     </div>
     <div class="border border-[#1d283a] w-full h-[70px] rounded-xl flex items-center px-4 gap-4">
         <i class="pi pi-lock text-[#7F8DA3]" style="font-size: 1.2rem;"></i>
@@ -53,8 +56,11 @@
             <p class="text-[#7F8DA3] text-sm">New members need approval from admins</p>
         </div>
         <div class="flex-1"></div>
-        <p-button styleClass="button-dis">Not Required</p-button>
-        <p-button styleClass="button-dis button-req">Required</p-button>
+        @if(!enableRequireApproval) {
+            <p-button styleClass="button-dis" (onClick)="enableRequireApproval = !enableRequireApproval">Not Required</p-button>
+        } @else {
+            <p-button styleClass="button-dis button-req" (onClick)="enableRequireApproval = !enableRequireApproval">Required</p-button>
+        }
     </div>
     <div class="flex justify-between items-center">
         <p-button type="button" styleClass="button-dis" label="Back"></p-button>
