@@ -51,7 +51,7 @@
             }">
             </p-progressbar>
 
-            <div class="flex items-center justify-around mt-4">
+            <div class="flex items-center justify-around mt-6">
                 <div class="flex flex-col items-center gap-1">
                     <i class="pi pi-users text-[#7F8DA3] text-sm"></i>
                     <p class="text-xs text-[#7F8DA3]">1 Total</p>
@@ -61,8 +61,13 @@
                     <p class="text-xs text-[#7F8DA3]">0 Admins</p>
                 </div>
                 <div class="flex flex-col items-center gap-1">
-                    <i class="pi pi-globe text-[#7F8DA3] text-xs"></i>
-                    <p class="text-xs text-[#7F8DA3]">Public</p>
+                    @if (organization.allow_public_join) {
+                        <i class="pi pi-globe text-[#7F8DA3] text-xs"></i>
+                        <p class="text-xs text-[#7F8DA3]">Public</p>
+                    } @else {
+                        <i class="pi pi-lock text-[#7F8DA3] text-xs"></i>
+                        <p class="text-xs text-[#7F8DA3]">Private</p>
+                    }
                 </div>
             </div>
         </div>
