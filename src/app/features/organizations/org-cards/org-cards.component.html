@@ -36,7 +36,9 @@
                     
                 </div>
                 <div class="flex-1"></div>
-                <i class="pi pi-cog text-[#7F8DA3] cursor-pointer"></i>
+                <a class="cursor-pointer" [routerLink]="['/organizations', organization.id]">
+                    <i class="pi pi-cog text-white"></i>
+                </a>
             </div>
             <!-- pi-cog -->
             <p class="text-sm text-[#7F8DA3] mt-4 h-10 line-clamp-3">

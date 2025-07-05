@@ -5,10 +5,11 @@ import { OrganizationsService } from '../../../core/services/organizations.servi
 import { Organization } from '../../../core/models/organization.model';
 import { DatePipe } from '@angular/common';
 import { FirstLetterOfWordsPipe } from '../../../shared/pipes/first-letter-of-words.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-org-cards',
-  imports: [ProgressBarModule, DividerModule, DatePipe, FirstLetterOfWordsPipe],
+  imports: [ProgressBarModule, DividerModule, DatePipe, FirstLetterOfWordsPipe, RouterLink],
   templateUrl: './org-cards.component.html',
   styleUrl: './org-cards.component.css',
 })

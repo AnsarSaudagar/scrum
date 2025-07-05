@@ -4,6 +4,7 @@ import { AuthenticationComponent } from './layout/components/authentication/auth
 import { HomeComponent } from './layout/components/home/home.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { OrganizationsComponent } from './features/organizations/organizations.component';
+import { OrgManageComponent } from './features/organizations/org-manage/org-manage.component';
 
 export const routes: Routes = [
     {
@@ -17,7 +18,11 @@ export const routes: Routes = [
             },
             {
                 path: 'organizations',
-                component: OrganizationsComponent
+                component: OrganizationsComponent,
+            },
+            {
+                path: 'organizations/:id',
+                component: OrgManageComponent,
             }
         ]
     },
