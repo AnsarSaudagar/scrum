@@ -7,33 +7,38 @@
                 <div class="w-12 h-12 bg-[#0F1629] rounded-full flex items-center justify-center">
                     <p class="text-white text-base">{{organization.name | firstLetterOfWords}}</p>
                 </div>
-                <div class="flex flex-col flex-1">
-                    <div class="flex items-center gap-2">
-                        <h2 class="text-white text-base font-bold">{{organization.name}}</h2>
-                        @if (organization.is_owner) {
-                        <i class="pi pi-crown text-[#eab308] text-xs"></i>
-                        }
+                <div>
+                    <div class="flex flex-col flex-1">
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-white text-base font-bold">{{organization.name}}</h2>
+                            @if (organization.is_owner) {
+                            <i class="pi pi-crown text-[#eab308] text-xs"></i>
+                            }
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <!-- <span
+                                class="inline-block px-2 py-0.5 bg-[#0F1629] text-white text-xs font-semibold rounded-full">
+                                member
+                            </span> -->
+                            @if (organization.is_owner) {
+                            <span
+                                class="inline-block px-2 py-0.5 bg-[var(--primary-color)] text-black text-xs font-semibold rounded-full">owner</span>
+                            } @else{
+                            <span
+                                class="inline-block px-2 py-0.5 bg-[#0F1629] text-white text-xs font-semibold rounded-full">
+                                member
+                            </span>
+                            }
+                            <span
+                                class="inline-block px-2 py-0.5 text-white text-xs font-semibold rounded-full border border-[var(--gray-default-color)]">free</span>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-2 mt-1">
-                        <!-- <span
-                            class="inline-block px-2 py-0.5 bg-[#0F1629] text-white text-xs font-semibold rounded-full">
-                            member
-                        </span> -->
-                        @if (organization.is_owner) {
-                        <span
-                            class="inline-block px-2 py-0.5 bg-[var(--primary-color)] text-black text-xs font-semibold rounded-full">owner</span>
-                        } @else{
-                        <span
-                            class="inline-block px-2 py-0.5 bg-[#0F1629] text-white text-xs font-semibold rounded-full">
-                            member
-                        </span>
-                        }
-                        <span
-                            class="inline-block px-2 py-0.5 text-white text-xs font-semibold rounded-full border border-[var(--gray-default-color)]">free</span>
-                    </div>
+                    
                 </div>
+                <div class="flex-1"></div>
+                <i class="pi pi-cog text-[#7F8DA3] cursor-pointer"></i>
             </div>
-
+            <!-- pi-cog -->
             <p class="text-sm text-[#7F8DA3] mt-4 h-10 line-clamp-3">
                 {{organization.description}}
             </p>
