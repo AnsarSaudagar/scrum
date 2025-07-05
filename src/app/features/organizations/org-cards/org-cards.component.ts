@@ -29,4 +29,8 @@ export class OrgCardsComponent {
       },
     });
   }
+
+  onClickOrg(id: string) {
+    console.log(id);
+  }
 }
