@@ -7,5 +7,5 @@ export interface Organization {
     require_approval: boolean;
     created_at: Date;
     is_owner?: boolean;
-    members_count?: number;
+    members?: number;
 }
