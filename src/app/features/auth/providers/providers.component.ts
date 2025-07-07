@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-providers',
@@ -8,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class ProvidersComponent {
   onClickGoogle() {
-    window.location.href = 'http://localhost:7200/auth/google';
+    window.location.href =  environment.apiUrl + '/auth/google';
   }
 }
