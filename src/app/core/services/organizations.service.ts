@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -40,6 +40,18 @@ export class OrganizationsService {
       }),
       catchError((error: any) => {
         console.error('Error creating organization:', error);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  getOrganization(orgId: string | number): Observable<Organization> {
+    return this.http.get<Organization>(`${this.apiUrl}/${orgId}`, { withCredentials: true }).pipe(
+      map((organization: Organization) => {
+        return organization;
+      }),
+      catchError((error: any) => {
+        console.error('Error fetching organization:', error);
         return throwError(() => error);
       })
     );
