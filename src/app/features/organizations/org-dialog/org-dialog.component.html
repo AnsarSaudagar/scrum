@@ -15,29 +15,16 @@
 
       <!-- Simple HTML Tabs with Tailwind -->
       <div class="bg-[#0F1629] rounded-xl p-1 flex gap-1 mt-6">
-        <button 
-          [class]="tabCss"
-          [class.bg-[var(--background-color)]]="activeTab === 'overview'"
-          (click)="activeTab = 'overview'"
-        >
-          Overview
-        </button>
-        <button 
-          [class]="tabCss"
-          [class.bg-[var(--background-color)]]="activeTab === 'create'"
-          (click)="activeTab = 'create'"
-        >
-          Create
-        </button>
-        <button 
-          [class]="tabCss"
-          [class.bg-[var(--background-color)]]="activeTab === 'join'"
-          (click)="activeTab = 'join'"
-        >
-          Join
-        </button>
+        @for (tab of tabs; track $index) {
+          <button 
+            [class]="tabCss"
+            [class.bg-[var(--background-color)]]="activeTab === tab"
+            (click)="activeTab = tab"
+          >
+            {{tab.charAt(0).toUpperCase() + tab.slice(1)}}
+          </button>
+        }
       </div>
-
       <!-- Tab Content -->
       <div class="mt-6">
         @if (activeTab === 'overview') {

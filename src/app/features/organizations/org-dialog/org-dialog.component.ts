@@ -29,7 +29,7 @@ export class OrgDialogComponent {
   }
 
   activeTab = 'create';
-  tabs = ['Overview', 'Create', 'Join'];
+  tabs = ['overview', 'create', 'join'];
   tabCss =
     'flex-1 py-2 px-4 rounded-lg text-white font-medium transition-all duration-200 cursor-pointer text-sm';
 }
