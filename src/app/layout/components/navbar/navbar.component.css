@@ -1,0 +1,4 @@
+.main-container:hover,
+.main-container:hover * {
+    color: white !important;
+}
