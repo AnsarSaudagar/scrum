@@ -1,1 +1,11 @@
-<p>custom-tabs works!</p>
+<div class="bg-[#0F1629] rounded-xl p-1 flex gap-1 mt-6">
+    @for (tab of tabs; track $index) {
+    <button [class]="tabCss" [class.bg-[var(--background-color)]]="activeTab === tab" (click)="onTabClick(tab)">
+        {{tab.charAt(0).toUpperCase() + tab.slice(1)}}
+    </button>
+    }
+</div>
+<!-- Tab Content -->
+<div class="mt-6">
+    <ng-content></ng-content>
+</div>
