@@ -56,4 +56,16 @@ export class OrganizationsService {
       })
     );
   }
+
+  getOrganizationByKeyword(keyword: string): Observable<Organization[]> {
+    return this.http.get<Organization[]>(`${this.apiUrl}/search?keyword=${keyword}`, { withCredentials: true }).pipe(
+      map((organizations: Organization[]) => {
+        return organizations;
+      }),
+      catchError((error: any) => {
+        console.error('Error searching organizations:', error);
+        return throwError(() => error);
+      })
+    );
+  } 
 }
