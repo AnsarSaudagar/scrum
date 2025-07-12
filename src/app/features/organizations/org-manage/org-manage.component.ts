@@ -36,4 +36,8 @@ export class OrgManageComponent implements OnInit {
       
     }
   }
+
+  goBack() {
+    this.router.navigate(['/organizations']);
+  }
 }

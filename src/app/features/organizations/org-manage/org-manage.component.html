@@ -1,86 +1,83 @@
 <div class="mt-20">
-    <!-- <div class="main w-full border border-[#0F2040] rounded-xl h-70"> -->
-        <div class="max-w-full mx-auto p-6  rounded-2xl border border-[#0F2040] text-white">
-            <!-- Top Row -->
-            <div class="flex justify-between items-start">
-              <!-- Profile Section -->
-              <div class="flex items-center space-x-4">
-                <!-- Avatar -->
-                <div class="relative">
-                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-2xl font-bold">
-                    T
-                  </div>
-                  <!-- Verified Badge -->
-                  <div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-xs">
-                    ✔️
-                  </div>
-                </div>
-          
-                <!-- Info -->
-                <div>
-                  <div class="flex items-center space-x-2">
-                    <h2 class="text-xl font-bold">{{org?.name}}</h2>
-                    <span>👑</span>
-                  </div>
-                  <p class="text-gray-400">{{org?.description}}</p>
-                  <div class="flex space-x-2 mt-2">
-                    <span class="px-2 py-0.5 bg-gray-800 rounded-full text-xs">owner</span>
-                    <span class="px-2 py-0.5 bg-gray-800 rounded-full text-xs">free</span>
-                    <span class="px-2 py-0.5 bg-gray-800 rounded-full text-xs flex items-center space-x-1">
-                      🔒 <span>Private</span>
-                    </span>
-                    <span class="px-2 py-0.5 bg-gray-800 rounded-full text-xs flex items-center space-x-1">
-                      📅 <span>Created Jul 2025</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-          
-              <!-- Actions -->
-              <div class="flex items-center space-x-2">
-                <button class="flex items-center space-x-1 bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2 rounded-lg text-sm font-medium">
-                  <span>👥</span>
-                  <span>Invite Member</span>
-                </button>
-                <button class="w-10 h-10 flex items-center justify-center border border-gray-600 rounded-lg">⋯</button>
-              </div>
-            </div>
-          
-            <!-- Divider -->
-            <div class="border-t border-gray-700 my-6"></div>
-          
-            <!-- Stats Row -->
-            <div class="grid grid-cols-4 gap-4 text-center">
-              <div>
-                <div class="flex items-center justify-center space-x-1">
-                  <span>👥</span>
-                  <span class="text-xl font-bold">1</span>
-                </div>
-                <p class="text-gray-400 text-sm mt-1">Total Members</p>
-              </div>
-              <div>
-                <div class="flex items-center justify-center space-x-1">
-                  <span>💹</span>
-                  <span class="text-xl font-bold">1</span>
-                </div>
-                <p class="text-gray-400 text-sm mt-1">Active</p>
-              </div>
-              <div>
-                <div class="flex items-center justify-center space-x-1">
-                  <span>🛡️</span>
-                  <span class="text-xl font-bold">1</span>
-                </div>
-                <p class="text-gray-400 text-sm mt-1">Admins</p>
-              </div>
-              <div>
-                <div class="flex items-center justify-center space-x-1">
-                  <span>📈</span>
-                  <span class="text-xl font-bold">10%</span>
-                </div>
-                <p class="text-gray-400 text-sm mt-1">Capacity</p>
-              </div>
-            </div>
+  <div class="flex items-center space-x-2 mb-4 hover:cursor-pointer hover:bg-[var(--gray-default-color)] rounded-xl p-2 px-4 w-fit gap-2" (click)="goBack()">
+    <i class="pi pi-arrow-left text-[var(--gray-text-color)]" style="font-size: 0.8rem;"></i>
+    <span class="text-[var(--gray-text-color)] text-base font-medium">Back to organizations</span>
+  </div>
+  <div class="max-w-full mx-auto p-6  rounded-2xl border border-[var(--gray-default-color)] text-white">
+    <div class="flex justify-between items-start">
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-2xl font-bold">
+            T
           </div>
-          
-    <!-- </div> -->
+          <div
+            class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-xs">
+            ✔️
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center space-x-2">
+            <h2 class="text-4xl font-bold">{{org?.name}}</h2>
+            <span>👑</span>
+          </div>
+          <p class="text-gray-400 text-xl my-2">{{org?.description}}</p>
+          <div class="flex space-x-2 mt-2">
+            <span class="px-2 py-0.5 bg-gray-800 rounded-full text-xs">owner</span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded-full text-xs">free</span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded-full text-xs flex items-center space-x-1">
+              🔒 <span>Private</span>
+            </span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded-full text-xs flex items-center space-x-1">
+              📅 <span>Created Jul 2025</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <button
+          class="flex items-center space-x-1 bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2 rounded-lg text-sm font-medium">
+          <span>👥</span>
+          <span>Invite Member</span>
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center border border-gray-600 rounded-lg">⋯</button>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 my-6"></div>
+
+    <div class="grid grid-cols-4 gap-4 text-center">
+      <div>
+        <div class="flex items-center justify-center space-x-1">
+          <span>👥</span>
+          <span class="text-xl font-bold">1</span>
+        </div>
+        <p class="text-gray-400 text-sm mt-1">Total Members</p>
+      </div>
+      <div>
+        <div class="flex items-center justify-center space-x-1">
+          <span>💹</span>
+          <span class="text-xl font-bold">1</span>
+        </div>
+        <p class="text-gray-400 text-sm mt-1">Active</p>
+      </div>
+      <div>
+        <div class="flex items-center justify-center space-x-1">
+          <span>🛡️</span>
+          <span class="text-xl font-bold">1</span>
+        </div>
+        <p class="text-gray-400 text-sm mt-1">Admins</p>
+      </div>
+      <div>
+        <div class="flex items-center justify-center space-x-1">
+          <span>📈</span>
+          <span class="text-xl font-bold">10%</span>
+        </div>
+        <p class="text-gray-400 text-sm mt-1">Capacity</p>
+      </div>
+    </div>
+  </div>
+
 </div>
