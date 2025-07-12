@@ -109,7 +109,7 @@ textarea.error-input:focus {
 
 ::ng-deep .my-box .p-dropdown .p-dropdown-label {
     padding: 0.5rem 1rem;
-    color: #7F8DA3;
+    color: var(--gray-text-color);
 }
 
 ::ng-deep .my-box .p-dropdown .p-dropdown-label:not(.p-placeholder) {
@@ -117,7 +117,7 @@ textarea.error-input:focus {
 }
 
 ::ng-deep .my-box .p-dropdown .p-dropdown-trigger {
-    color: #7F8DA3;
+    color: var(--gray-text-color);
 }
 
 /* Dropdown Panel Styling */
@@ -142,25 +142,25 @@ textarea.error-input:focus {
 /* Button Styling */
 .button-dis {
     background-color: transparent !important;
-    border: 1px solid #1d283a !important;
-    color: #7F8DA3 !important;
+    border: 1px solid var(--gray-default-color) !important;
+    color: var(--gray-text-color) !important;
     border-radius: 8px !important;
     padding: 0.5rem 1rem !important;
     font-size: 0.875rem !important;
 }
 
 .button-dis:hover {
-    background-color: #1d283a !important;
+    background-color: var(--gray-default-color) !important;
     color: white !important;
 }
 
 .button-req {
-    background-color: #3b82f6 !important;
-    border: 1px solid #3b82f6 !important;
+    background-color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
     color: white !important;
 }
 
 .button-req:hover {
-    background-color: #2563eb !important;
-    border-color: #2563eb !important;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
 }

@@ -42,12 +42,12 @@
                 </a>
             </div>
             <!-- pi-cog -->
-            <p class="text-sm text-[#7F8DA3] mt-4 h-10 line-clamp-3">
+            <p class="text-sm text-[var(--gray-text-color)] mt-4 h-10 line-clamp-3">
                 {{organization.description}}
             </p>
 
             <div class="flex items-center justify-between mt-4">
-                <p class="text-sm text-[#7F8DA3]">Team Size</p>
+                <p class="text-sm text-[var(--gray-text-color)]">Team Size</p>
                 <p class="text-sm text-white">1/10 members</p>
             </div>
 
@@ -61,27 +61,27 @@
 
             <div class="flex items-center justify-around mt-6">
                 <div class="flex flex-col items-center gap-1">
-                    <i class="pi pi-users text-[#7F8DA3] text-sm"></i>
-                    <p class="text-xs text-[#7F8DA3]">{{organization.members}} Total</p>
+                    <i class="pi pi-users text-[var(--gray-text-color)] text-sm"></i>
+                    <p class="text-xs text-[var(--gray-text-color)]">{{organization.members}} Total</p>
                 </div>
                 <div class="flex flex-col items-center gap-1">
-                    <i class="pi pi-crown text-[#7F8DA3] text-xs"></i>
-                    <p class="text-xs text-[#7F8DA3]">0 Admins</p>
+                    <i class="pi pi-crown text-[var(--gray-text-color)] text-xs"></i>
+                    <p class="text-xs text-[var(--gray-text-color)]">0 Admins</p>
                 </div>
                 <div class="flex flex-col items-center gap-1">
                     @if (organization.allow_public_join) {
-                        <i class="pi pi-globe text-[#7F8DA3] text-xs"></i>
-                        <p class="text-xs text-[#7F8DA3]">Public</p>
+                        <i class="pi pi-globe text-[var(--gray-text-color)] text-xs"></i>
+                        <p class="text-xs text-[var(--gray-text-color)]">Public</p>
                     } @else {
-                        <i class="pi pi-lock text-[#7F8DA3] text-xs"></i>
-                        <p class="text-xs text-[#7F8DA3]">Private</p>
+                        <i class="pi pi-lock text-[var(--gray-text-color)] text-xs"></i>
+                        <p class="text-xs text-[var(--gray-text-color)]">Private</p>
                     }
                 </div>
             </div>
         </div>
 
         <div class="border-t border-[#10172A] pt-4 mt-4">
-            <p class="text-xs text-[#7F8DA3]">Joined {{organization.created_at | date:'MMM yyyy'}}</p>
+            <p class="text-xs text-[var(--gray-text-color)]">Joined {{organization.created_at | date:'MMM yyyy'}}</p>
         </div>
     </div>
     }

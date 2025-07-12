@@ -5,7 +5,7 @@
                 Organization Name <span class="text-red-500">*</span>
             </label>
             <input formControlName="name" type="text" placeholder="Acme Corp"
-                class="w-full px-4 py-2 border border-[#1d283a] rounded-xl text-white placeholder-[#7F8DA3] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                class="w-full px-4 py-2 border border-[#1d283a] rounded-xl text-white placeholder-[var(--gray-text-color)] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 [class.error-input]="name?.invalid && name?.touched" />
             <div class="error-message" *ngIf="name?.invalid && name?.touched">
                 <span *ngIf="name?.errors?.['required']">Organization name is required</span>
@@ -25,21 +25,21 @@
     <div>
         <label class="block text-white text-sm font-medium mb-3">Description</label>
         <textarea formControlName="description" rows="3" placeholder="Tell us about your organization..."
-            class="w-full px-4 py-3 border border-[#1d283a] rounded-xl text-white placeholder-[#7F8DA3] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+            class="w-full px-4 py-3 border border-[#1d283a] rounded-xl text-white placeholder-[var(--gray-text-color)] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
             [class.error-input]="description?.invalid && description?.touched"></textarea>
         <div class="error-message" *ngIf="description?.invalid && description?.touched">
             <span *ngIf="description?.errors?.['maxlength']">Description cannot exceed 500 characters</span>
         </div>
         <div class="text-right mt-1">
-            <span class="text-xs text-[#7F8DA3]">{{ description?.value?.length || 0 }}/500</span>
+            <span class="text-xs text-[var(--gray-text-color)]">{{ description?.value?.length || 0 }}/500</span>
         </div>
     </div>
     <p class="text-white text-lg font-medium ">Organization Settings</p>
     <div class="border border-[#1d283a] w-full h-[70px] rounded-xl flex items-center px-4 gap-4">
-        <i class="pi pi-globe text-[#7F8DA3]" style="font-size: 1.2rem;"></i>
+        <i class="pi pi-globe text-[var(--gray-text-color)]" style="font-size: 1.2rem;"></i>
         <div>
             <p class="text-white text-base font-medium">Allow Public Join</p>
-            <p class="text-[#7F8DA3] text-sm">Anyone can discover and join your organization
+            <p class="text-[var(--gray-text-color)] text-sm">Anyone can discover and join your organization
             </p>
         </div>
         <div class="flex-1"></div>
@@ -50,10 +50,10 @@
         }
     </div>
     <div class="border border-[#1d283a] w-full h-[70px] rounded-xl flex items-center px-4 gap-4">
-        <i class="pi pi-lock text-[#7F8DA3]" style="font-size: 1.2rem;"></i>
+        <i class="pi pi-lock text-[var(--gray-text-color)]" style="font-size: 1.2rem;"></i>
         <div>
             <p class="text-white text-base font-medium">Require Approval</p>
-            <p class="text-[#7F8DA3] text-sm">New members need approval from admins</p>
+            <p class="text-[var(--gray-text-color)] text-sm">New members need approval from admins</p>
         </div>
         <div class="flex-1"></div>
         @if(!enableRequireApproval) {

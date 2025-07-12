@@ -11,7 +11,7 @@
           <span class="text-2xl text-white font-medium">Organization Setup</span>
         </div>
       </ng-template>
-      <p class="text-[#7F8DA3]">Organizations help you manage teams and collaborate on projects</p>
+      <p class="text-[var(--gray-text-color)]">Organizations help you manage teams and collaborate on projects</p>
 
       <app-custom-tabs [tabs]="['overview', 'create', 'join']" [activeTab]="activeTab" (activeTabChange)="activeTab = $event">
         @if (activeTab === 'overview') {
@@ -23,9 +23,7 @@
           <app-create-tab (onOrgCreated)="onOrgCreated($event)"></app-create-tab>
         }
         @if (activeTab === 'join') {
-          <div class="text-white">
-            <p class="m-0">Content for Join tab.</p>
-          </div>
+          <app-join-tab></app-join-tab>
         }
       </app-custom-tabs>
       
