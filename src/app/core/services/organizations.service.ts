@@ -68,4 +68,13 @@ export class OrganizationsService {
       })
     );
   } 
+
+  joinOrganization(orgId: string | number): Observable<Organization> {
+    return this.http.post<Organization>(`${this.apiUrl}/join?org_id=${orgId}`,{} , { withCredentials: true }).pipe(
+      map((organization: Organization) => {
+        this.getOrganizations().subscribe();
+        return organization;
+      }),
+    );
+  }
 }

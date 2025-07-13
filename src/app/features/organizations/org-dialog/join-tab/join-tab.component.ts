@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { OrganizationsService } from '../../../../core/services/organizations.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Organization } from '../../../../core/models/organization.model';
@@ -12,6 +12,7 @@ import { FirstLetterOfWordsPipe } from '../../../../shared/pipes/first-letter-of
 })
 export class JoinTabComponent {
   searchKeyword = new FormControl('');
+  @Output() visibleChange = new EventEmitter<boolean>();
   constructor(private organizationsService: OrganizationsService) {}
   message = "Enter an organization name to search";
   organizations: Organization[] = [];
@@ -30,4 +31,14 @@ export class JoinTabComponent {
       }
     });
   }
+
+  joinOrganization(orgId: string | number) {
+    this.organizationsService.joinOrganization(orgId).subscribe((organization) => {
+      this.organizations = this.organizations.map((org) => org.id === orgId ? organization : org);
+      this.visibleChange.emit(false);
+      
+    });
+  }
+
+  
 }

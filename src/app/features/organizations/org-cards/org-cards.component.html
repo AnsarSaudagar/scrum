@@ -48,7 +48,7 @@
 
             <div class="flex items-center justify-between mt-4">
                 <p class="text-sm text-[var(--gray-text-color)]">Team Size</p>
-                <p class="text-sm text-white">1/10 members</p>
+                <p class="text-sm text-white">{{organization.members}}/10 members</p>
             </div>
 
             <p-progressbar color="var(--primary-color)" showValue="false" [value]="10 * (organization.members ?? 0)" [style]="{

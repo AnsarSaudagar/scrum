@@ -23,7 +23,7 @@
           <app-create-tab (onOrgCreated)="onOrgCreated($event)"></app-create-tab>
         }
         @if (activeTab === 'join') {
-          <app-join-tab></app-join-tab>
+          <app-join-tab (visibleChange)="onVisibleChange($event)"></app-join-tab>
         }
       </app-custom-tabs>
       
