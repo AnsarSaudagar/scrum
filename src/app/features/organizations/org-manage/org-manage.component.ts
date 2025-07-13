@@ -3,15 +3,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OrganizationsService } from '../../../core/services/organizations.service';
 import { MessageService } from 'primeng/api';
 import { Organization } from '../../../core/models/organization.model';
+import { CustomTabsComponent } from '../../../shared/components/custom-tabs/custom-tabs.component';
 
 @Component({
   selector: 'app-org-manage',
-  imports: [],
+  imports: [CustomTabsComponent],
   templateUrl: './org-manage.component.html',
   styleUrl: './org-manage.component.css',
 })
 export class OrgManageComponent implements OnInit {
   org: Organization | null = null;  
+  tabs : string[] = ['overview', 'members', 'settings', 'analytics', 'activity'];
+  activeTab : string = 'overview';
+  
   constructor(
     private route: ActivatedRoute,
     private orgService: OrganizationsService,
@@ -39,5 +43,9 @@ export class OrgManageComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['/organizations']);
+  }
+
+  onTabChange(tab: string) {
+    this.activeTab = tab;
   }
 }
