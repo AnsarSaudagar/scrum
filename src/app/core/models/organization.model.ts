@@ -8,4 +8,5 @@ export interface Organization {
     created_at: Date;
     is_owner?: boolean;
     members?: number;
+    is_member?: boolean;
 }
